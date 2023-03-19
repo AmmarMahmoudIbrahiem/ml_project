@@ -17,9 +17,11 @@ def get_requirements(file_path:str)->List[str]:
 
 setup(
 name='ml_project',
-version='0.0.1',
+version='1.0',
 author='AmmarMahmoudIbrahiem',
-author_email='ammar013783@gmail.com',
+author_email='ammar013783@gmail.com ',
 packages=find_packages(),
-install_requires=get_requirements('requirements.txt')
+python_requires='>=3.7, <4',
+install_requires=get_requirements('requirements.txt'),
+
 )
