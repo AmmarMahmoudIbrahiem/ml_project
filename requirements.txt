@@ -2,7 +2,7 @@ pandas
 numpy
 seaborn
 matplotlib
-skitlearn
+sklearn
 chatboost
 xgboost
 -e .
