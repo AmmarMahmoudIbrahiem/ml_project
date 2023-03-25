@@ -1,3 +1,5 @@
+
+
 import os
 import sys
 from src.exception import CustomException
@@ -5,7 +7,13 @@ from src.logger import logging
 import pandas as pd
 
 from sklearn.model_selection import train_test_split
-from dataclasses import dataclass 
+from dataclasses import dataclass
+
+from src.componets.data_transformation import DataTransformation
+from src.componets.data_transformation import DataTransformationConfig
+
+from src.componets.model_train import ModelTrainerConfig
+from src.componets.model_train import ModelTrainer
 
 
 @dataclass
@@ -41,6 +49,7 @@ class DataIngestion:
         except Exception as e:
             raise CustomException(sys,e)
 
+
 if __name__=="__main__":
     obj=DataIngestion()
     train_data,test_data=obj.initiate_data_ingestion()
@@ -48,6 +57,8 @@ if __name__=="__main__":
     data_transformation=DataTransformation()
     train_arr,test_arr,_=data_transformation.initiate_data_transformation(train_data,test_data)
 
+    modeltrainer=ModelTrainer()
+    print(modeltrainer.initiate_model_trainer(train_arr,test_arr))
 
 
 
